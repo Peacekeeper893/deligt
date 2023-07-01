@@ -29,6 +29,7 @@ const Tableherores = () => {
     {
       event.preventDefault()
       console.log(`A table for ${members} on ${date} at ${time}`)
+      alert("Thank you for submitting your request! . We will contact you shortly with further details!")
     }
   
     function handleChangeTime(event)
@@ -46,7 +47,7 @@ const Tableherores = () => {
 
 </div>
 
-<div className="border-golden border-2 mx-8 mt-28 p-8 flex flex-col">
+<div className="border-golden border-2 mx-8 mt-8 p-4 flex flex-col">
   <div className="justify-center  text-center text-3xl text-white font-cormant "> Reservations</div>
   <div className="flex justify-around "> <img src={spoon} alt="Welcome" className='w-10 mt-2' /></div>
 
@@ -73,6 +74,10 @@ const Tableherores = () => {
       
     </div>
 
+          <div className="flex justify-around font-cormant text-xl my-4  "><input type='text' placeholder='Name under Reservation' className='bg-primary text-black py-2 px-3 rounded-md hover:bg-primary hover:text-golden border-2 hover:border-golden  hover:ease-in duration-150 font-semibold w-[78%] text-center'/></div>
+
+          <div className="flex justify-around font-cormant text-xl my-4  "><input type='text' placeholder='Your e-mail addrress' className='bg-primary text-black py-2 px-3 rounded-md hover:bg-primary hover:text-golden border-2 hover:border-golden  hover:ease-in duration-150 font-semibold w-[78%] text-center'/></div>
+          
     <div className="flex justify-around font-cormant text-2xl my-8 mb-4"><button type='submit' className='bg-amber-100 text-black p-3 rounded-md hover:bg-primary hover:text-golden border-2 hover:border-golden  hover:ease-in duration-150 font-semibold'>Book Table</button></div>
 
   </form>

@@ -1,5 +1,9 @@
 import { React, useContext, Fragment } from "react";
 
+
+
+import { RiCloseFill } from "react-icons/ri";
+
 import CartContext from "../store/cart-context";
 import CartItem from "./CartItem";
 
@@ -36,19 +40,29 @@ const Cart = (props) => {
     </ul>
   );
 
+  const handleOrder = () => {
+    alert("Your order has been placed. Thank you for choosing us.")
+
+    window.location.reload()
+  }
+
   return (
     <Fragment>
       <BackDrop toHide={props.toHide} />
-          <div className="fixed top-[7rem] left-1/4 flex flex-col p-5  z-30 bg-primary text-white w-1/2 min-h-[560px] rounded-xl">
+          <div className="fixed left-12 top-6 flex flex-col p-5  z-30 bg-primary text-white h-[93%] w-[93%] rounded-xl">
               
-              <h1 className="text-3xl font-semibold  text-center mb-4">Cart</h1>
-              <div className="max-h-[23rem] overflow-y-auto">{cartItems}</div>
+        <div className="flex justify-between ">
+          <h1 className="text-3xl font-semibold text-center mb-4 items-baseline">Your Cart</h1>
+          <h1 className="text-3xl font-semibold  text-center  items-baseline"><RiCloseFill onClick={props.toHide} className="hover:scale-110"/></h1>
+        </div>
+              {cartCtx.items.length !== 0 && <div className="max-h-[24rem] overflow-y-auto">{cartItems}</div>}
+              {cartCtx.items.length === 0 && <div className="flex items-center justify-center">	&#128532;You don't have any items in the cart</div>}
               <div className="mt-auto">
                   <div className="flex justify-between ">
                       <div className="flex items-center font-bold text-3xl">Total Amount</div>
                         <div>{totalAmount}</div>
                   </div>
-              {hasItems && <div className="flex justify-end"><button className="p-3  bg-red-400 rounded-xl">Order</button></div>}
+              {hasItems && <div className="flex justify-center"><button className="p-3 px-28  bg-red-400 rounded-xl" onClick={handleOrder}>Order</button></div>}
                   
               </div>
         
